@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist",
+        "module": "CommonJS",
+        "moduleResolution": "Node",
+        "target": "ES6",
+        "declaration": true,
+        "esModuleInterop": true,
+        "downlevelIteration": true,
+        "typeRoots": [
+            "./node_modules/@types"
+        ],
+        "types": ["node"]
+    },
+    "include": [
+        "./source/**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
