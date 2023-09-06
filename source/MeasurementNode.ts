@@ -1,6 +1,6 @@
 import columnify from "columnify";
 import { Node } from "./Node.js";
-import { getIndent } from "./encoding.js";
+import { getIndent, indentString } from "./encoding.js";
 
 export class MeasurementNode extends Node {
     protected _measurements: Map<string, any> = new Map();
@@ -23,12 +23,13 @@ export class MeasurementNode extends Node {
         if (this._measurements.size > 0) {
             const processedMeasurements = {};
             for (const [key, value] of this._measurements.entries()) {
-                processedMeasurements[`${getIndent(indent + 1)}${key}`] = value;
+                processedMeasurements[key] = value;
             }
             const formatted = columnify(processedMeasurements, {
+                columnSplitter: " => ",
                 showHeaders: false
             });
-            output = `${output}\n${formatted}`;
+            output = `${output}\n${indentString(formatted, indent + 1)}`;
         }
         return output;
     }

@@ -30,8 +30,8 @@ export class Fruition {
         return this._name;
     }
 
-    branch(description: string, branchName: string, meta: Record<string, any> = {}): typeof this {
-        const branch = new BranchNode(description, branchName, meta);
+    branch(description: string, meta: Record<string, any> = {}): typeof this {
+        const branch = new BranchNode(description, meta);
         this.current.next = branch;
         this._current = branch;
         return this;

@@ -1,14 +1,12 @@
 import columnify from "columnify";
 import { Node } from "./Node.js";
-import { getIndent } from "./encoding.js";
+import { getIndent, indentString } from "./encoding.js";
 
 export class BranchNode extends Node {
     protected _branchMeta: Record<string, any>;
-    protected _branchName: string;
 
-    constructor(description: string, branchName: string, meta: Record<string, any>) {
+    constructor(description: string, meta: Record<string, any>) {
         super(description);
-        this._branchName = branchName;
         this._branchMeta = meta;
     }
 
@@ -17,12 +15,13 @@ export class BranchNode extends Node {
         if (Object.keys(this._branchMeta).length > 0) {
             const processedMeta = {};
             for (const key in this._branchMeta) {
-                processedMeta[`${getIndent(indent + 1)}${key}`] = this._branchMeta[key];
+                processedMeta[key] = this._branchMeta[key];
             }
             const formatted = columnify(processedMeta, {
+                columnSplitter: " => ",
                 showHeaders: false
             });
-            output = `${output}\n${formatted}`;
+            output = `${output}\n${indentString(formatted, indent + 1)}`;
         }
         return output;
     }
