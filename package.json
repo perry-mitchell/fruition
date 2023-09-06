@@ -1,0 +1,35 @@
+{
+  "name": "fruition",
+  "version": "0.1.0",
+  "description": "Track execution paths and outcomes to form an explanation for understanding what happened",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/perry-mitchell/fruition.git"
+  },
+  "keywords": [
+    "executuion",
+    "path",
+    "explain",
+    "result",
+    "outcome",
+    "describe"
+  ],
+  "author": "Perry Mitchell <perry@perrymitchell.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/perry-mitchell/fruition/issues"
+  },
+  "homepage": "https://github.com/perry-mitchell/fruition#readme",
+  "devDependencies": {
+    "@types/columnify": "^1.5.2",
+    "@types/node": "^20.2.5",
+    "typescript": "^5.1.3"
+  },
+  "dependencies": {
+    "columnify": "^1.6.0"
+  }
+}
