@@ -3,6 +3,11 @@ import { MeasurementNode } from "./MeasurementNode.js";
 import { Node } from "./Node.js"
 import { fruitionToText } from "./encoding.js";
 
+/**
+ * Class to track execution process through a system, marking and
+ *  measuring as it progresses. Use `Fruition#toString` to get the
+ *  output.
+ */
 export class Fruition {
     protected _current: Node;
     protected _entry: Node;
@@ -46,7 +51,7 @@ export class Fruition {
         return this;
     }
 
-    toString(): string {
-        return fruitionToText(this);
+    toString(indent: number = 0): string {
+        return fruitionToText(this, indent);
     }
 }
