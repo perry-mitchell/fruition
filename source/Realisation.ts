@@ -28,3 +28,8 @@ export class Realisation<T extends any> {
         ].join("\n");
     }
 }
+
+export function createEmptyRealisation<T extends any>(value: T, fruitionName: string = "empty"): Realisation<T> {
+    const fruition = new Fruition(fruitionName);
+    return new Realisation(value, fruition);
+}
