@@ -1,5 +1,11 @@
 # Fruition
 
+## v0.2.1
+_2023-09-11_
+
+ * **Bugfix**:
+   * Encoding for complex values would fall back to `[object Object]` etc.
+
 ## v0.2.0
 _2023-09-10_
 
