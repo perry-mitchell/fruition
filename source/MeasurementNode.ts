@@ -1,6 +1,6 @@
 import columnify from "columnify";
 import { Node } from "./Node.js";
-import { getIndent, indentString } from "./encoding.js";
+import { INDENT_SPACES, decodeMultilineEncoding, encodeMultilineColumn, getIndent, indentString } from "./encoding.js";
 
 export class MeasurementNode extends Node {
     protected _measurements: Map<string, any> = new Map();
@@ -23,12 +23,13 @@ export class MeasurementNode extends Node {
         if (this._measurements.size > 0) {
             const processedMeasurements = {};
             for (const [key, value] of this._measurements.entries()) {
-                processedMeasurements[key] = value;
+                processedMeasurements[key] = encodeMultilineColumn(JSON.stringify(value, undefined, INDENT_SPACES));
             }
-            const formatted = columnify(processedMeasurements, {
-                columnSplitter: " => ",
+            const formatted = decodeMultilineEncoding(columnify(processedMeasurements, {
+                columnSplitter: " | ",
+                preserveNewLines: true,
                 showHeaders: false
-            });
+            }));
             output = `${output}\n${indentString(formatted, indent + 1)}`;
         }
         return output;
