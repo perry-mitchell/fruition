@@ -1,5 +1,11 @@
 # Fruition
 
+## v0.2.2
+_2023-11-02_
+
+ * **Bugfix**:
+   * Branch node value encoding shows stringified results instead of JSON encoded
+
 ## v0.2.1
 _2023-09-11_
 
